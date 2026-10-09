@@ -3,3 +3,31 @@ body {
     color:rgb(58, 46, 135);
 }
 
+nav {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    min-width: 800px;
+}
+
+th,
+td {
+    border: 1px solid rgb(58, 46, 135);
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.low-stock,
+.out-of-stock {
+    background-color: red;
+    font-weight: bold;
+}
+
+.success-message {
+    color: green;
+    font-weight: bold;
+}

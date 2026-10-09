@@ -10,6 +10,30 @@
 </head>
 <body>
     <h1><%= title %></h1>
-    Hello EJS!
+    <nav>
+        <a href="/filter">Szűrés kategória szerint</a>
+        <a href="/new">Új termék felvétele</a>
+        <a href="/stats">Statisztikák</a>
+    </nav>
+    <table>
+        <thead>
+            <tr>
+                <th>Név</th>
+                <th>Kategória</th>
+                <th>Ár</th>
+                <th>Raktáron</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% products.forEach(product => { %>
+            <tr class="<%= product.stock === 0 ? 'out-of-stock' : '' %>">
+                <td><%= product.name %></td>
+                <td><%= product.category %></td>
+                <td><%= product.price %> Ft</td>
+                <td class="<%= product.stock > 0 && product.stock < 5 ? 'low-stock' : '' %>"><%= product.stock %></td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
 </body>
 </html>

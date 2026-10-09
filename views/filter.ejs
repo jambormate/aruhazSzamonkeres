@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1><%= title %></h1>
+    <nav>
+        <a href="/">Vissza a terméklistához</a>
+    </nav>
+    <form action="/filter" method="get">
+        <label for="category">Kategória:</label>
+        <select id="category" name="category" required>
+            <option value="" <%= category%>>Válassz kategóriát</option>
+            <% categories.forEach(item => { %>
+            <option value="<%= item %>" <%= category === item%>><%= item %></option>
+            <% }) %>
+        </select>   
+        <button type="submit">Szűrés</button>
+    </form>
+    <% if (category) { %>
+    <table>
+        <thead>
+            <tr>
+                <th>Név</th>
+                <th>Kategória</th>
+                <th>Ár</th>
+                <th>Raktáron</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% products.forEach(product => { %>
+            <tr class="<%= product.stock === 0 ? 'out-of-stock' : '' %>">
+                <td><%= product.name %></td>
+                <td><%= product.category %></td>
+                <td><%= product.price %> Ft</td>
+                <td class="<%= product.stock > 0 && product.stock < 5 ? 'low-stock' : '' %>"><%= product.stock %></td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    <% } %>
+</body>
+</html>

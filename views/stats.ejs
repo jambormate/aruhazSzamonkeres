@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1><%= title %></h1>
+    <nav>
+        <a href="/">Vissza a terméklistához</a>
+    </nav>
+    <ul>
+        <li>Összes készlet: <%= totalStock %></li>
+        <li>Átlagár: <%= averagePrice %> Ft</li>
+        <li>Legdrágább termék: <%= maxPriceProduct.name %> (<%= maxPriceProduct.price %> Ft)</li>
+        <li>Legolcsóbb termék: <%= minPriceProduct.name %> (<%= minPriceProduct.price %> Ft)</li>
+    </ul>
+</body>
+</html>
